@@ -1,5 +1,15 @@
-<article>
-  <h1>Afficher le post n° {{ post.id }} </h1>
-  <h1> ##{{post.id}} - {{post.title}} </h1>
-  <p> {{post.body}} </p>
-</article>
+{% extends 'layouts/base.html' %}
+
+{% block title %} {{post.title}} {% endblock %}
+
+{% block content %}
+
+  <article>
+    <h1>Afficher le post n° {{ post.id }} </h1>
+    <h1> ##{{post.id}} - {{post.title}} </h1>
+    <p> {{post.body}} </p>
+  </article>
+
+  <a href=" {% url 'blog:index' %} ">Retour</a>
+
+{% endblock %}

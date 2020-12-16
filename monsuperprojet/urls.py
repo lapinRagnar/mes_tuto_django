@@ -19,13 +19,16 @@ Including another URLconf
 #import debug_toolbar
 #from django.views.generic import TemplateView
 
-from blog import views
+from . import views
 from django.urls import include, path
 
 
 urlpatterns = [
-    path('', views.index, name='index_blog'),
+    path('', views.home, name='home'),
+    path('about/', views.about, name='about'),
+    path('contact/', views.contact, name='contact'),
 
+    path('', include('blog.urls')),
 ]
 
 #path('__debug__/', include(debug_toolbar.urls)),

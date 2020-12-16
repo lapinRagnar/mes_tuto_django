@@ -1,2 +1,17 @@
-<h1>Putain j'ai reussi!</h1>
-<h1>C'est la page de blog</h1>
+
+<h1>Mon super blog</h1>
+
+<p>Nombre d'article( {{ posts|length }} )</p>
+<hr>
+  {% for p in posts %}
+    <article>
+      <h2> <a href="/blog/post/{{p.id}} ">#{{ p.id }} - {{ p.title }} </a> </h2>
+      <p>{{ p.body|truncatewords:3 }} </p>
+      <p><a href="/blog/post/{{p.id}} ">Lire la suite</a></p>
+    </article>
+
+  {% empty %}
+
+    <p>Le tableau est vide!</p>
+
+  {% endfor %}

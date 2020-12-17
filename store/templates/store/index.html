@@ -1,0 +1,21 @@
+{% extends 'layouts/base.html' %}
+
+
+{% block content %}
+  <h1>Listes des articles </h1>
+
+  <p>Nombre d'artiste( {{ artists|length }} )</p>
+  <hr>
+    {% for a in artists %}
+      <article>
+        <h2> <a href="">#{{ a.id }} - {{ a.name }} </a> </h2>
+
+      </article>
+
+    {% empty %}
+
+      <p>Le tableau est vide!</p>
+
+    {% endfor %}
+    
+{% endblock %}

@@ -1,11 +1,18 @@
 from django.db import models
+from django.urls import reverse
 
 # Create your models here.
 class Artist(models.Model):
   name = models.CharField(max_length=200, unique=True)
+  instrument = models.CharField(max_length=100, default='')
   
   def __str__(self):
     return self.name
+
+  def get_context_data(self, **kwargs):
+      context = super().get_context_data(**kwargs)
+      context['id'] = id
+      return context
 
 
 class Contact(models.Model):

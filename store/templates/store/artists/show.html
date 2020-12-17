@@ -1,0 +1,32 @@
+{% extends 'layouts/base.html' %}
+
+
+{% block content %}
+
+  <div class="card">
+      <div class="card-header">
+          <h5 class="card-title">Details Artistes #{{artist.id}}</h5>
+      </div>
+      <div class="card-body">
+        <dl class="row">
+        
+          <dt class="col-sm-3">Nom</dt>
+          <dd class="col-sm-9">{{ artist.name }}</dd>
+
+          <dt class="col-sm-3">Instrument</dt>
+          <dd class="col-sm-9">{{ artist.instrument }}</dd>
+
+          <dt class="col-sm-3">Afficher toute l'album</dt>
+          <dd class="col-sm-9">{{ 'a faire' }}</dd>
+
+        </dl>
+
+      </div>
+      <div class="card-footer">
+        <a href=" {% url 'update_artist' artist.id%}" class="btn btn-success">Modifier</a>
+        <a href=" {% url 'delete_artist' artist.id%}" class="btn btn-danger">Suppriner</a>
+        <a href=" {% url 'index_artist' %} " class="btn btn-secondary">Retour</a>   
+      </div>
+  </div>
+    
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'layouts/base.html' %}
+
+
+{% block content %}
+
+  <div class="card">
+      <div class="card-header">
+          <h5 class="card-title">Supprimer l'artiste #{{object.id}}</h5>
+      </div>
+      <div class="card-body">
+          <form method="post">
+              {% csrf_token %}
+              <div class="alert alert-warning" role="alert">
+                  Es-ce que tu es sure ? <strong>{{ object }}</strong> ?
+              </div>
+              <button type="submit" class="btn btn-danger">Supprimer</button>
+          </form>
+      </div>
+  </div>
+    
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'layouts/base.html' %}
+
+
+{% block content %}
+
+  <table class="table">
+      <thead class="thead-light">
+          <tr>
+              <th scope="col">Nom</th>
+              <th scope="col">Instrument</th>
+          </tr>
+      </thead>
+      <tbody>
+          {% for a in artists %}
+          <tr>
+              <td><a href=" {% url 'show_artist' a.id %} ">{{a.name}}</a></td>
+              <td>{{a.instrument}}</td>
+          </tr>
+          {% empty %}
+            <p>Pas d'artiste en ce moment!</p>
+          {% endfor %}
+      </tbody>
+      <tfoot>
+        <tr>
+            <td> <a href="{% url 'create_artist' %}  " class="btn btn-info">Creer un artiste</a> </td>
+            <td>  </td>
+        </tr>
+        
+      </tfoot>
+    
+  </table>
+    
+{% endblock %}
